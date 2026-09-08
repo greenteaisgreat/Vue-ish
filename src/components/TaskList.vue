@@ -2,13 +2,13 @@
 import type { Task } from "@/types";
 
 const props = defineProps<{
-  taskArr: Task[];
+  tasks: Task[];
 }>();
 </script>
 
 <template>
   <!-- in picoCSS, articles are automatically stylized cards -->
-  <article v-for="task in props.taskArr" :key="task.id">
+  <article v-for="task in props.tasks" :key="task.id">
     {{ task.title }}
   </article>
 </template>
