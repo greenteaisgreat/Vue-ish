@@ -19,12 +19,6 @@ function addTask(newTask: string) {
   <main>
     <h1>{{ title }}</h1>
     <TaskForm @add-task="addTask" />
-    <ul>
-      <li v-for="task in taskArr" :key="task.id" class="task-item">
-        {{ task.title }}
-      </li>
-    </ul>
-    <h3>There are {{ taskArr.length }} tasks</h3>
   </main>
 </template>
 
@@ -36,8 +30,5 @@ main {
 .button-container {
   display: flex;
   justify-content: end;
-}
-.task-item {
-  list-style-type: none;
 }
 </style>
