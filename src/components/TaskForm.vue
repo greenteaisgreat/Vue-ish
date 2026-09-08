@@ -7,10 +7,11 @@ const emit = defineEmits<{
 }>();
 
 function formSubmitted() {
-  console.log(newTask.value);
-
-  emit("addTask", newTask.value);
-  newTask.value = "";
+  // trim prevents a bunch of spaces from being entered
+  if (newTask.value.trim()) {
+    emit("addTask", newTask.value.trim());
+    newTask.value = "";
+  }
 }
 </script>
 
@@ -18,7 +19,13 @@ function formSubmitted() {
   <form @submit.prevent="formSubmitted">
     <label for="newTask">
       New Task
-      <input name="newTask" v-model="newTask" />
+      <input
+        name="newTask"
+        v-model="newTask"
+        required
+        pattern="\w{0,999}"
+        title="Task cannot be empty!"
+      />
     </label>
     <div class="button-container">
       <button>Add</button>
