@@ -14,14 +14,22 @@ function addTask(newTask: string) {
     done: false,
   });
 }
+function toggleDone(id: string) {
+  const task = tasks.value.find((task) => task.id === id);
+  if (task) {
+    task.done = !task.done;
+  }
+}
 </script>
 
 <template>
   <main>
     <h1>{{ title }}</h1>
     <TaskForm @add-task="addTask" />
+    <h3 v-if="!tasks.length">Add a Task to Get Started</h3>
+    <h3 v-else>{{ 0 }}/{{ tasks.length }} Tasks Completed</h3>
     <!-- syntactic sugar for :tasks="tasks" -->
-    <TaskList :tasks />
+    <TaskList :tasks @toggle-done="toggleDone" />
   </main>
 </template>
 
