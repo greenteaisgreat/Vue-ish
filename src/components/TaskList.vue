@@ -52,6 +52,9 @@ const emit = defineEmits<{
 .list-enter-active,
 .list-leave-active {
   transition: all 0.5s ease;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .list-enter-from,
@@ -61,10 +64,9 @@ const emit = defineEmits<{
 }
 
 /* helps animated remaining items*/
-.list-leave-active {
+/* .list-leave-active {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: absolute;
-}
+} */
 </style>
