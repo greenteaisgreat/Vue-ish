@@ -19,13 +19,7 @@ function formSubmitted() {
   <form @submit.prevent="formSubmitted">
     <label for="newTask">
       New Task
-      <input
-        name="newTask"
-        v-model="newTask"
-        required
-        pattern="\w{0,999}"
-        title="Task cannot be empty!"
-      />
+      <input name="newTask" v-model="newTask" required />
     </label>
     <div class="button-container">
       <button>Add</button>
