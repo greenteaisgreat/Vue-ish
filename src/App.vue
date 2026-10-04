@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { Analytics } from "@vercel/analytics/next";
 import { ref, computed } from "vue";
 import TaskForm from "./components/TaskForm.vue";
 import TaskList from "./components/TaskList.vue";
@@ -52,6 +53,7 @@ function setFilter(filterType: TaskFilter) {
 </script>
 
 <template>
+  <Analytics />
   <main>
     <h1>{{ title }}</h1>
     <TaskForm @add-task="addTask" />
